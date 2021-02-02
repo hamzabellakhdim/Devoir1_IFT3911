@@ -1,0 +1,265 @@
+Le volet administratif manipule (créer, modifier,supprimer) les données des (infrastructure de transport) aéroport, ports et gares.
+Le volet administratif manipule (créer, modifier,supprimer) les données des compagnies (aériennes, ferrovières, de croisière).
+Le volet administratif manipule (créer, modifier,supprimer) les données des trajets (vols, croisières, trajets de trains)
+Le volet administratif manipule (créer, modifier,supprimer) les données des sections (Sections Avions, Sections paquebot et sections trains)
+Le volet administratif affiche tous les détails des voyages qui viennent d'un port ou qui arrivent à un aérport
+ 
+
+Le volet client (version aérien et ferroviaire) (Sièges même format)
+	Vérifie les vols/trajets trains disponibles 
+	Réserve des sièges
+	Paie un siège
+
+Le volet client (version naval)
+	Vérifie les vabines disponibles
+	Réserve une cabine
+	Paie une cabine
+
+Scénario de l'ajout/modification/supppression d'une infrastructure:
+	1.L'admin va dans la section "Modifier Infrastructures". 
+
+	2. Il choisit ajouter l'option "ajouter infrastructure". 
+ 
+	3. Il entre les propriétés de la nouvelle infrastructure.
+
+	"ALT" modifier
+	
+	2. Il choisit ajouter l'option "modifier infrastructure". 
+
+	3. Le système montre une liste des infrastructures.
+
+	4. Il/elle choisit l'infrastructure à modifier
+ 
+	5. Il entre les nouvelles propriétés du port.
+
+	"ALT" supprimer
+
+	2. Il choisit ajouter l'option "supprimer infrastructure". 
+ 
+	3. Le système montre une liste des infrastructures.
+
+	4. Il/elle choisit l'infrastructure à supprimer
+
+	4/5. Il/Elle enregistre les données
+	
+	5/6. Retour au menu principal
+
+Scénario de l'ajout/modification/supppression d'une compagnie
+	1. L'admin va dans la section "Modifier compagnies". 
+
+	2. Il/Elle choisit ajouter l'option "ajouter compagnie". 
+ 
+	3. Il/Elle entre les propriétés de la nouvelle compagnie.
+
+	"ALT" modifier
+	
+	2. Il/Elle choisit ajouter l'option "modifier compagnie". 
+
+	3. Le système montre une liste des compagnies.
+
+	4. Il/Elle choisit la compagnie à modifier
+ 
+	5. Il/Elle entre les nouvelles propriétés de la compagnie.
+
+	"ALT" supprimer
+
+	2. Il/Elle choisit ajouter l'option "supprimer compagnie". 
+ 
+	3. Le système montre une liste des compagnie.
+
+	4. Il/Elle choisit la compagnie à supprimer
+
+	4/5. Il/Elle enregistre les données
+	
+	5/6. Retour au menu principal
+
+Scénario de l'ajout/modification/supppression d'un voyage
+	1. L'admin va dans le section "Modification de trajets"
+	
+	2. Il choisit l'option création de trajets
+
+		3. Il choisit l'option "vol"
+
+		ALT "Trajet en train"
+
+		3. Il choisit l'option "trajet en train"
+
+		ALT "Trajet en bateau"
+
+		3. Il choisit l'option "trajet en bateau"
+	
+		4. Il rentre les propriétés du nouveau trajet
+
+
+	ALT 
+	2. Il choisit l'option "modification de trajets" 
+
+		3. Il choisit l'option "vol"
+
+		4. Il entre l'ID de la compagnie
+
+		5. Il entre l'ID du vol
+
+		ALT "trajet en train"
+
+		3. Il choisit l'option "trajet en train"
+
+		4. Il rentre l'ID de la compagnie
+
+		5. Il rentre la destination et l'arrivée
+
+		ALT "trajet en bateau"
+
+		3. Il spécifie l'option "trajet en bateau"
+	
+  		4. Il spécifie la compagnie.
+
+		5. Il spécifie le port de départ et d arrivee
+		
+		6. Il spécifie la date de depart 
+
+		7. Il spécifie l'heure du trajet
+
+		8. L'admin choisit le trajet en question
+
+		9. L'admin rentre les nouveaux détails 
+
+		10. L'admin sauvegarde les informations
+
+	ALT
+	2. Il choisit l'option suppression de trajets 
+
+		3. Il choisit l'option "vol"
+
+		4. Il entre l'ID de la compagnie
+
+		5. Il entre l'ID du vol
+
+		ALT "trajet en train"
+
+		3. Il choisit l'option "trajet en train"
+
+		4. Il rentre l'ID de la compagnie
+
+		5. Il rentre la destination et l'arrivée
+
+		ALT "trajet en bateau"
+
+		3. Il spécifie l'option "trajet en bateau"
+	
+  		4. Il spécifie la compagnie.
+
+		5. Il spécifie le port de départ et d arrivee
+		
+		6. Il spécifie la date de depart 
+
+		7. Il spécifie l'heure du trajet
+
+		8. L'admin choisit le trajet en question
+
+		9. L'admin rentre les nouveaux détails 
+
+		10. L'admin sauvegarde les informations
+
+Scénario pour la création des sections:
+	1. L'admin va dans la section création de "sections"
+
+	2. Il choisit "Créations sections avions"
+
+	3. Il entre l'ID de la compagnie qui offre le vol
+ 
+	4. Il entre l'ID du vol voulu
+
+	ALT "Créations sections trains"
+
+	2. Il choisit "Créations sections train"
+
+	3. Il rentre l'ID de la compagnie
+
+	4. Il rentre la destination et l'arrivée
+
+	ALT "Créations sections paquebot"
+
+	2. Il spécifie l'option "trajet en bateau"
+	
+  	3. Il spécifie la compagnie.
+
+	4. Il spécifie le port de départ et d'arrivee
+
+	6. Il spécifie la date de depart 
+
+	7. Il spécifie l'heure du trajet
+
+	8. L'admin choisit le trajet en question
+		
+	9. L'admin rajoute les sections voulues au trajet
+
+	10. L'admin sauvegarde les informations
+
+Scénario pour l'assignation des prix
+	1. L'admin va dans la section assignation des prix
+
+	2. Il choisit l'option compagnie aérienne
+
+	ALT "compagnie ferroviaire"
+
+	2. Il choisit l'option compagnie ferroviaire
+
+	ALT "compagnie croisière"
+
+	2. Il choisit l'option compagnie de croisière
+
+	3. L'admin assigne le prix voulu à la compagnie
+
+	4. L'admin sauvegarde les nouvelles informations
+
+	3. Il rentre le code de moins de 6 chiffres de la compagnie 	
+
+Scénario pour la vérification des voyages disponibles
+	1. Le client/agent représentant le client va dans la section vérifier voyages
+
+	2. L'acteur choisit un voyage ferroviaire/aérien
+	
+	3. L'acteur choisit le lieu de départ 
+
+	ALT "croisière"
+
+	2. L'acteur choisit une croisière
+
+	3. L'acteur choisit le port de départ
+
+	4. L'acteur rajoute des détails tels que la date et l'heure qui conviennent le mieux
+
+	5. Une liste des voyages disponibles de cette destination apparaît
+
+
+Scénario pour la réservation d'un voyage
+	1. Le client/agent représentant le client va dans la section réserver voyages
+
+	2. L'acteur choisit un voyage ferroviaire/aérien
+	
+	3. L'acteur choisit le lieu de départ 
+
+	ALT "croisière"
+
+	2. L'acteur choisit une croisière
+
+	3. L'acteur choisit le port de départ
+
+	4. L'acteur rajoute des détails tels que la date et l'heure qui conviennent le mieux
+
+	5. Une liste des voyages disponibles cohérente apparaît
+	
+	6. L'acteur choisit celui qui le convient le mieux et le réserve
+
+	7. Le système retourne un numéro de réservation
+
+	
+Scénario pour le paiement d'un voyage
+	1. L'acteur va dans la section payer voyage
+
+	2. L'acteur met son numéro de réservation
+
+	3. S'il est valide le système le renvoie vers une page pour s'occuper du paiement
+
+	4. Le client reçoit le reçu de la transaction (détails du paiement)
