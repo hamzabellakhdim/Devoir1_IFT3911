@@ -116,15 +116,12 @@ Scénario de l'ajout/modification/supppression d'un voyage
 
 		5. Il spécifie le port de départ et d arrivee
 		
-		6. Il spécifie la date de depart 
+	6. Il spécifie la date de depart 
 
-		7. Il spécifie l'heure du trajet
+	7. Il spécifie l'heure du trajet
 
-		8. L'admin choisit le trajet en question
+	8. L'admin choisit le trajet en question
 
-		9. L'admin rentre les nouveaux détails 
-
-		10. L'admin sauvegarde les informations
 
 	ALT
 	2. Il choisit l'option suppression de trajets 
@@ -157,9 +154,9 @@ Scénario de l'ajout/modification/supppression d'un voyage
 
 		8. L'admin choisit le trajet en question
 
-		9. L'admin rentre les nouveaux détails 
+	9. L'admin rentre les nouveaux détails 
 
-		10. L'admin sauvegarde les informations
+	10. L'admin sauvegarde les informations
 
 Scénario pour la création des sections:
 	1. L'admin va dans la section création de "sections"
