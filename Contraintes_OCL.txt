@@ -1,42 +1,111 @@
 1/ Un aéroport est identifié par trois lettres uniques à chaque aéroport
 /[OCL]/
 
-2/ La partie alphabétique de l'ID d'un vol
-est unique à chaque compagnie et la partie numérique est unique à chaque
-vol au sein de la même compagnie
+context LocationGestionnaire:
+inv: self.locations.idLocation --> size()=3 
+and self.locations --> select(oclIsKindOf(Aeroport)) --> forAll(a1,a2|a1.idLocation<>a2.idLocation)
+
+
+2/ La partie alphabétique de l'ID d'un volest unique à chaque compagnie
+ et la partie numérique est unique à chaque vol au sein de la même compagnie
  /[OCL]/
+
+context: VoyageGestionnaire:
+inv: self.voyages.idVoyage-->forAll(v1,v2|v1.substring(1,2)=v2.substring(1,2) implies
+v1.idCompagnieVoyage=v2.idCompagnieVoyage) and self.voyages.idVoyage -->
+forAll(v1,v2|v1.substring(3,v1.size())=v2.substring(3,v2.size()) implies
+v1.idCompagnieVoyage=v2.idCompagnieVoyage)
+
 
 3/  L'aéroport de départ et d'arrivée d'un vol doit être différent 
 /[OCL]/.
 
+context VoyageGestionnaire:
+inv:self.voyages -->select(oclIsKindOf(Vol))
+ -->forAll(v|v.descriptionVoyage.lieuDepart<>self.descriptionVoyage.lieuArrivee)
+
+
 4/ Tous les sièges d'une même section ont le même prix.
  /[OCL]/.
 
+context MoyenTransport:
+inv: self.sectionMoyenTransport -->select(oclIsKindOf(SectionA))-->
+forAll(s1,s2|s1.prix=s2.prix)
+
+
 5/ Un port est identifié par trois lettres uniques à chaque port.
  /[OCL]/.
+
+context LocationGestionnaire:
+inv: self.locations.idLocation -->size()=3 
+and self.locations -->select(oclIsKindOf(Port))--> forAll(a1,a2|a1.idLocation<>a2.idLocation)
+
+
 
 6/ Une compagnie de croisière fournit plusieurs itinéraires, avec dates et
 heures de départ et d'arrivée. Un itinéraire ne peut pas durer plus de
 21 jours.
  /[OCL]/.
 
+context VoyageGestionnaire:
+inv: self.voyages-->select(oclIsKindOf(Itineraire))-->reject(self.descriptionVoyage.duree>21)
+
+
 7/ Le port de départ et d'arrivée doit être le même .
 /[OCL]/.
+
+context VoyageGestionnaire:
+inv: self.voyages --> select(oclIsKindOf(Itineraire))-->
+forAll(i|i.descriptionVoyage.lieuDepart=self.descriptionVoyage.lieuArrivee)
+
+
 
 8/ Un paquebot peut être assigné à plusieurs itinéraires tant qu'ils ne se chevauchent pas
 /[OCL]/.
 
+context ControllerAdmin:
+inv:self.MoyenTransport_Gestionnaire.moyenTransports -->exists(m:MoyenTransport|m.oclIsKindOf(Paquebot)
+and self.VoyageGestionnaire.voyages-->select(oclIsKindOf(Itineraire)-->size()>1 implies
+forAll(i1,i2|i1<>i2)
+
 9/ Toutes les cabines d'une même section ont le même prix.
  /[OCL]/.
+
+context MoyenTransport:
+inv: self.sectionMoyenTransport -->select(oclIsKindOf(SectionP))-->
+forAll(s1,s2|s1.prix=s2.prix) 
+
 
 10/ Une gare est identifiée par trois lettres uniques à chaque gare.
  /[OCL]/.
 
+context LocationGestionnaire:
+inv: self.locations.idLocation --> size()=3 
+and self.locations --> select(oclIsKindOf(Gare)) --> forAll(a1,a2|a1.idLocation<>a2.idLocation)
+
+
+
 11/ Le client peut réserver un siège disponible dans un vol (ligne) donné
 /[OCL]/.
+
+context Controller_Client:: reserverSiege(siege:Siege,idVoyage:string,depart:Date,retour:Date) (r:Reservation)
+
+pre: self.reservation.siegeReservation.EtatSiege.equalsIgnoreCase('libre') implies siegeReservation=siege
+post: self.reservation.siegeReservation.EtatSiege.equalsIgnoreCase('reserver') implies siegeReservation=siege
+
+
 
 12/ Un siège réservé devient assigné à un passager une fois payé: le siège est donc confirmé
 /[OCL]/.
 
+context Reservation_Gestionnaire :: payerReservation(idReservation:string,idClient:string,cc:CarteCredit,prix:float) (r:Reservation)
+pre: self.reservation.estconfirmee()=true and self.reservation.siegeReservation.equals('confirmer') implies r=reservation
+post: self.reservation.estconfirmee()=true and self.reservation.siegeReservation.equals('confirmer') implies r=reservation
+
+
 13/ Le client peut réserver une cabine disponible pour un itinéraire donné
 /[OCL]/.
+
+context Controller_Client:: reserverSiege(siege:Siege,idVoyage:string,depart:Date,retour:Date)
+pre: self.reservation.siegeReservation.EtatSiege.equalsIgnoreCase('libre') implies siegeReservation=siege and idVoyage='Itineraire'
+post: self.reservation.siegeReservation.EtatSiege.equalsIgnoreCase('reserver') implies siegeReservation=siege and idVoyage='Itineraire'
