@@ -88,7 +88,7 @@ and self.locations --> select(oclIsKindOf(Gare)) --> forAll(a1,a2|a1.idLocation<
 11/ Le client peut réserver un siège disponible dans un vol (ligne) donné
 /[OCL]/.
 
-context Controller_Client:: reserverSiege(siege:Siege,idVoyage:string,depart:Date,retour:Date) (r:Reservation)
+context Controller_Client:: reserverSiege(siege:Siege,idVoyage:string,depart:Date,retour:Date) 
 
 pre: self.reservation.siegeReservation.EtatSiege.equalsIgnoreCase('libre') implies siegeReservation=siege
 post: self.reservation.siegeReservation.EtatSiege.equalsIgnoreCase('reserver') implies siegeReservation=siege
@@ -98,9 +98,9 @@ post: self.reservation.siegeReservation.EtatSiege.equalsIgnoreCase('reserver') i
 12/ Un siège réservé devient assigné à un passager une fois payé: le siège est donc confirmé
 /[OCL]/.
 
-context Reservation_Gestionnaire :: payerReservation(idReservation:string,idClient:string,cc:CarteCredit,prix:float) (r:Reservation)
-pre: self.reservation.estconfirmee()=true and self.reservation.siegeReservation.equals('confirmer') implies r=reservation
-post: self.reservation.estconfirmee()=true and self.reservation.siegeReservation.equals('confirmer') implies r=reservation
+context Reservation_Gestionnaire :: payerReservation(idReservation:string,idClient:string,cc:CarteCredit,prix:float) 
+pre: self.reservation.estconfirmee()=true and self.reservation.siegeReservation.equals('confirmer') implies idReservation=reservation.idReservation
+post: self.reservation.estconfirmee()=true and self.reservation.siegeReservation.equals('confirmer') implies idReservation=reservation.idReservation
 
 
 13/ Le client peut réserver une cabine disponible pour un itinéraire donné
