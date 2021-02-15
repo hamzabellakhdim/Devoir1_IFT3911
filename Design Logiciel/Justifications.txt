@@ -1,0 +1,28 @@
+
+- La plupart du diagramme de classe utilise la généralisation (héritage) car on peut 
+clairement voir dans la définition des exigences (énoncé) que chaque moyen de transport
+différent (avion, train, bateau) est relié par les mêmes propriétés (compagnie propriétaire,
+infrastructure de départ et d'arrivée, concept de siège, etc..).
+De plus, tous les gestionnaires utilisent les mêmes fonctionnalités, c'est-à-dire ajouter,
+modifier et supprimer, ce qui justifie l'emploi d'une interface générale 'Main_gestionnaire'.
+
+- Chaque Gestionnaire des différents aspects gérés par le logiciel 
+(Réservation, voyages, compagnies..) est relié par un lien composite à l'entité qu'il gère
+car sans voyage à gérer, il ne peut pas y avoir de gestionnaire de voyages.
+Cela en fait donc des classes responsables de création d'objets.
+
+- Nous avons utilisé une classe descriptive 'DescriptionVoyage' afin de décrire l'objet
+Voyage, car cela augmente la cohésion de la classe Voyage qui ne garde en attribut que ses
+propriétés primaires. 
+Cela améliore la maintenance de par le fait qu'un ajout de caractéristique d'un voyage dans
+le futur pourra être fait plus facilement avec une classe entièrement dédiée à la description
+d'un voyage.
+
+- Une classe Section a la responsabilité partielle de connaître le montant du plein tarif
+à bord d'un voyage. C'est ensuite cette même classe et ses enfants (grâce à la 
+généralisation) qui s'occupent de calculer le prix pour chaque section.
+
+- Notre structure utilise le modèle 'Vue-Contrôleur' afin de pouvoir optimiser le coupage
+de l'architecture. ll y a 2 contrôleurs : celui du niveau administrateur qui s'occupe 
+d'envoyer les requêtes aux différents gestionnaires et celui du niveau client qui gère
+majoritairement les réservations de siège et les infos client.
