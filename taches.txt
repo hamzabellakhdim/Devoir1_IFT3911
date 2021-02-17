@@ -1,9 +1,0 @@
-* Modèle de conception du domaine [30%] :
-      o Diagramme de classe conceptuel [20%]
-      o Diagrammes de séquence système (un par scénario identifié) [10%]
-  * Design logiciel [70%] :
-      o Diagramme de classe [25%]
-      o Diagrammes de séquence ou de collaboration [15%]
-      o Diagramme de paquets [5%]
-      o Contraintes OCL [15%]
-      o Justifications [10%]

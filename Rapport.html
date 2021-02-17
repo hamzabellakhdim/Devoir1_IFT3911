@@ -22,8 +22,9 @@
         }
     </style>
 </head>
-<body>
-    <h1 style="text-align: center;">
+
+<body style="text-align: center;">
+    <h1 style="text-align: center; margin-bottom: 100px;">
         IFT 3911 - DM1</h1>
     <h2>
         Information générale</h2>
@@ -34,7 +35,7 @@
         <br>
         <span style="font-weight: bold;">Courriel: </span>siddharth.baichoo@umontreal.ca
         <br>
-        <span style="font-weight: bold;">temps mis: </span> heures
+        <span style="font-weight: bold;">temps mis: </span>11 heures
     </p>
     <p>
         <span style="font-weight: bold;">Nom: </span>Hamza Bellakhdim
@@ -43,23 +44,23 @@
         <br>
         <span style="font-weight: bold;">Courriel: </span>hamza.bellakhdim@umontreal.ca
         <br>
-        <span style="font-weight: bold;">temps mis: </span> heures
+        <span style="font-weight: bold;">temps mis: </span>12 heures
     </p>
-    <p>
+    <p style="margin-bottom: 100px;">
         <span style="font-weight: bold;">Nom: </span>William Bach
         <br>
         <span style="font-weight: bold;">Matricule: </span>20127144
         <br>
         <span style="font-weight: bold;">Courriel: </span>william.bach@umontreal.ca
         <br>
-        <span style="font-weight: bold;">temps mis: </span> heures
+        <span style="font-weight: bold;">temps mis: </span>10 heures
     </p>
     <h2>
         Distribution des tâches</h2>
     <p>
-        <span style="font-weight: bold;">Soumetteur: </span>
+        <span style="font-weight: bold;">Soumetteur: William Bach </span>
     </p>
-    <table cellpadding="7px">
+    <table cellpadding="7px" style="margin-bottom: 100px;">
         <thead>
             <tr>
                 <th class="first_col">
@@ -177,29 +178,92 @@
             </tr>
         </tbody>
     </table>
-    <h2>
+    <h2> 
         Hypothèses</h2>
-    <p>
+    <p style="margin-bottom: 100px;">
         On a pris en compte les contraintes OCL de l'énoncé.<br>
-        Puis on a supposé que: <br>
-        1) un client ne va pas faire plusieurs réservations pour le même voyage. <br>
-        2) les paiements par cartes de crédit (processus de validation, authorization, etc...) ne sera pas gérée par notre application <br>
-        3) un client ne pourra modifier son siège une fois celui-ci choisit (premier arrivé premier servi)
-    </p>
+        Puis on a supposé que: </p>
+    <ul style="text-align: left; margin-bottom: 100px;">
+        <li>1) un client ne va pas faire plusieurs réservations pour le même voyage. </li>
+        <li>2) les paiements par cartes de crédit (processus de validation, authorization, etc...) ne sera pas gérée par notre application. </li>
+        <li>3) un client ne pourra modifier son siège une fois celui-ci choisit (premier arrivé premier servi).</li>
+    </ul>
+    
     <h2>
-        Diagramme de classe conceptuel</h2>
+        Tâche 1</h2>
     <p>
-        Voici notre solution pour la tâche 1.
+        Voici notre solution pour la tâche 1 (modèle du domaine + DSS).
     </p>
-    <ul>
-        <li>Voici un <a href="file:///C:/Users/bachw/Documents/GitHub/Devoir1_IFT3911/Rapport.html">lien</a> vers les fichiers.</li>
+    <ul style="text-align: left;">
+        <li>Voici un <a href="https://github.com/hamzabellakhdim/Devoir1_IFT3911">lien</a> vers les fichiers (repo GitHub mis en public).</li>
         <li>Images affichées directement.</li>
     </ul>
+    <img src="Modèle de conception du domaine/modèleDomaine(1).png" alt="Image 1" width="1400px"> </img>
+    <img src="Modèle de conception du domaine/modèleDomaine(2).png" alt="Image 2" width="1400px" style="margin-bottom: 100px;"> </img>
+    <img src="Modèle de conception du domaine/DSS_Compagnie.png" alt ="DSS 1" width="1400px"> </img>
+    <img src="Modèle de conception du domaine/DSS_Location.png" alt ="DSS 2" width="1400px"> </img>
+    <img src="Modèle de conception du domaine/DSS_Voyage(1).png" alt ="DSS 3" width="1400px"> </img>
+    <img src="Modèle de conception du domaine/DSS_Voyage(2).png" alt ="DSS 4" width="1400px"> </img>
+    <img src="Modèle de conception du domaine/DSS_Réservation.png" alt ="DSS 5" width="1400px"> </img>
+    <img src="Modèle de conception du domaine/DSS_Sections.png" alt ="DSS 6" width="1400px"> </img>
+    <img src="Modèle de conception du domaine/DSS_Prix.png" alt ="DSS 7" width="1400px"> </img>
+    <img src="Modèle de conception du domaine/DSS_Paiement.png" alt ="DSS 8" width="1400px"> </img>
+    <img src="Modèle de conception du domaine/DSS_vérifVoyages.png" alt ="DSS 9" width="1400px" style="margin-bottom: 100px;"> </img>
+
+
     <h2>
         Tâche 2</h2>
     <p>
-        ...
+        Voici notre solution pour la tâche 1 (diagrammes de classes + diagramme de paquets et diagrammes de séquence système).
     </p>
+    <ul style="text-align: left;">
+        <li>Voici un <a href="https://github.com/hamzabellakhdim/Devoir1_IFT3911">lien</a> vers les fichiers (repo GitHub mis en public).</li>
+        <li>Images affichées directement.</li>
+    </ul>
+    <img src="Design Logiciel/diagrammeClasse(1).png" alt="Image 1" width="1400px"> </img>
+    <img src="Design Logiciel/diagrammeClasse(2).png" alt="Image 2" width="1400px" style="margin-bottom: 100px;"> </img>
+    <img src="Design Logiciel/diagrammeClasse(3).png" alt="Image 3" width="1400px"> </img>
+    <img src="Design Logiciel/diagrammeClasse(4).png" alt="Image 4" width="1400px" style="margin-bottom: 100px;"> </img>
+    
+    <img src="Design Logiciel/diagrammeSéquence(1).png" alt="DS 1" width="1400px"> </img>
+    <img src="Design Logiciel/diagrammeSéquence(2).png" alt="DS 2" width="1400px"> </img>
+    <img src="Design Logiciel/diagrammeSéquence(3).png" alt="DS 3" width="1400px" style="margin-bottom: 100px;"> </img>
+
+    
+
+    <h2 style="margin-bottom: 30px;">
+        Tâche 3</h2>
+    
+    <p style="margin-bottom: 100px;"> Voici un <a href="Design Logiciel/Contraintes_OCL.txt">lien</a> vers un fichier texte pour lire les contraintes OCL.</p> 
+
+
+
+    <h2 style="margin-bottom: 30px;">
+        Tâche 4</h2>
+
+
+    <p style="font-weight: bold;"> Justifications du diagramme de classe</p>
+    <ul style="margin-bottom: 100px;">
+        <li><p>La plupart du diagramme de classe utilise la généralisation (héritage) car on peut 
+            clairement voir dans la définition des exigences (énoncé) que chaque moyen de transport
+            différent (avion, train, bateau) est relié par les mêmes propriétés (compagnie propriétaire,
+            infrastructure de départ et d'arrivée, concept de siège, etc..).
+            De plus, tous les gestionnaires utilisent les mêmes fonctionnalités, c'est-à-dire ajouter,
+            modifier et supprimer, ce qui justifie l'emploi d'une interface générale 'Main_gestionnaire'.</p></li>
+        <li><p>Nous avons utilisé une classe descriptive 'DescriptionVoyage' afin de décrire l'objet
+            Voyage, car cela augmente la cohésion de la classe Voyage qui ne garde en attribut que ses
+            propriétés primaires. 
+            Cela améliore la maintenance de par le fait qu'un ajout de caractéristique d'un voyage dans
+            le futur pourra être fait plus facilement avec une classe entièrement dédiée à la description
+            d'un voyage.</p></li>
+        <li><p>Une classe Section a la responsabilité partielle de connaître le montant du plein tarif
+            à bord d'un voyage. C'est ensuite cette même classe et ses enfants (grâce à la 
+            généralisation) qui s'occupent de calculer le prix pour chaque section.</p></li>
+        <li><p>Notre structure utilise le modèle 'Vue-Contrôleur' afin de pouvoir optimiser le coupage
+            de l'architecture. ll y a 2 contrôleurs : celui du niveau administrateur qui s'occupe 
+            d'envoyer les requêtes aux différents gestionnaires et celui du niveau client qui gère
+            majoritairement les réservations de siège et les infos client.</p></li>
+    </ul>
 
 
 </body></html>
