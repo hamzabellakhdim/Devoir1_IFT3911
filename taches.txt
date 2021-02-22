@@ -1,0 +1,42 @@
+Tâches
+
+ 1/ Modélisez le système du tunnel à l'aide d'un réseau de Pétri qui satisfait toutes les consignes.
+    Les consignes sont formulées sous forme d'incréments. Il est plus facile de le construire dans cet ordre.
+    Démontrez, à l'aide de lois de conservations, que seule une voiture peut être à l'intérieur du tunnel à la fois. 
+    Démontrez, à l'aide du graphe de couverture, que le système est équitable de part et d'autre du tunnel. 
+    Déduisez-en qu'il n'y a pas de famine dans le réseau.
+    
+ 2/ Modélisez le système du four à micro-onde à l'aide d'un Statechart.
+    Vous n'avez qu'à modifier le modèle Microwave/model/microwave.sct et générer le code en cliquant droit sur Microwave/model/java.sgen et cliquer sur Generate Code Artifacts.
+    Pour exécuter le programme, il faut exécuter la classe Microwave/src/microwave/MicrowaveApp.java. Lors de la correction, nous allons regénérer le code Java à partir de votre Statechart. 
+    Donc toute modification dans le code ne sera pas prise en compte.
+   
+ 3/ Cette tâche est reliée au système de réservation du devoir 1. Révisez votre design afin qu'il soit de bonne qualité en utilisant les techniques vues en classe. 
+    Votre design doit être modulaire et réutilisable. Identifiez clairement les modules à usage général et réutilisables dans le rapport.
+
+ 4/Dans cette tâche, vous devez démontrer la qualité du design de la tâche 3. Identifiez clairement les modules à usage général et réutilisables dans le rapport.
+    Vous devez justifier votre raisonnement en vous appuyant sur le couplage et la cohésion des classes et paquets, la relation entre le fardeau et le domaine des classes.
+    Identifiez clairement le type de couplage ou de cohésion concerné. Vous devez également produire un graphe IA montrant la stabilité et le niveau d'abstraction de chaque paquet. 
+    Justifier l'allure du graphe obtenu. Vous devez identifier les principes de conception que vous avez appliqués dans votre design et justifiez leur utilisation (ou absence).
+
+   
+    Réseau de Pétri [25%]
+        Modélisation du réseau de Pétri [15%]
+        Analyse du réseau de Pétri [10%]
+    Statechart [30%]
+        Modélisation du Statechart [25%]
+        Génération du code et application fonctionnelle [5%]
+    Design logiciel [25%] :
+        Révision du diagramme de classe [5%]
+        Révision des diagrammes de séquence ou de collaboration [5%]
+        Révision du diagramme de paquets [5%]
+        Révision des contraintes OCL [5%]
+        Identification des modules réutilisables [5%]
+    Qualité du design [20%]
+        Discussion du couplage et de la cohésion des modules [5%]
+        Discussion du fardeau des classes [5%]
+        Graphe IA et justification [5%]
+        Justification de l'application des principes de conception [5%]
+
+Téléversez toutes les images (incluant celles des diagrammes UML, du réseau de Pétri et du Statechart), fichiers source, fichiers de données, projet vpp, et y faire référence dans le rapport.
+ Le fichier ZIP doit comprendre trois dossiers : Design, Réseau de Petri et Statechart. 
