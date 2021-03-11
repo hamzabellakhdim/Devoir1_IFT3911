@@ -62,21 +62,17 @@ inv: self.oclIsKindOf(Itineraire) implies self.descriptionVoyage.lieuDepart=self
 8/ Un paquebot peut être assigné à plusieurs itinéraires tant qu'ils ne se chevauchent pas
 /[OCL]/.
 
-context ControllerAdmin:
-inv:self.MoyenTransport_Gestionnaire.moyenTransports -->exists(m:MoyenTransport|m.oclIsKindOf(Paquebot)
-and self.VoyageGestionnaire.voyages-->select(oclIsKindOf(Itineraire))-->size()>1 implies
-forAll(i1,i2|i1<>i2)
-
 context Voyage_Gestionnaire:
 inv:self.voyages-->select(oclisKindOf(Itineraire))-->
-forAll(a1,a2|a1.idmoyenTransport = a2.idmoyenTransport implies a1.descriptionVoyage.dateDepart <= a2.descriptionVoyage.dateArrivée and a1.descriptionVoyage.dateArrivée >= a2.descriptionVoyage.dateDépart)
+forAll(a1,a2|a1.idmoyenTransport = a2.idmoyenTransport implies a1.descriptionVoyage.dateDepart <= a2.descriptionVoyage.dateArrivée and
+ a1.descriptionVoyage.dateArrivée >= a2.descriptionVoyage.dateDépart)
 
 9/ Toutes les cabines d'une même section ont le même prix.
  /[OCL]/.
 
 context MoyenTransport:
 inv: self.sectionMoyenTransport -->select(oclIsKindOf(SectionP))-->
-forAll(s1,s2|s1.classeSection=s2.classeSection implies s1.prix=s2.prix) 
+forAll(s1,s2|s1.oclType() = s2.oclType() implies s1.prix=s2.prix) 
 
 
 10/ Une gare est identifiée par trois lettres uniques à chaque gare.
