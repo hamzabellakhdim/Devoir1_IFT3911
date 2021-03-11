@@ -1,0 +1,11 @@
+1/ suppression des liens entre itineraires et compagnies car les itineraires de compagnie sont
+accessibles via le gestionnaire de voyages ( erreur de conception qui augmentait le couplage)
+2/ association entre la classe compagnie et le gestionnaire de voyage pour la recherche/modification de vols .
+3/ association entre compagnie et  gestionnaire de moyen de transports car chaque compagnie possede
+ ses propres moyens de transports.
+4/ ajout des objets Location dans la description de voyages et suppression du lien entre Voyage et Section pour eviter les redondances.
+5/ ajout des attributs dateDepart et dateArrivee dans la DescriptionVoyage contenant les date et heures correspondantes.
+6/ ajout des idClient  dans la reservation pour garder une reference vers le client et ainsi le paiement sans avoir a passe un objet Client:
+on evite ainsi un couplage par contenu
+7/ ajout relation entre ControllerClient et gestionnaire de compagnie  pour la recherche de vols
+8/ suppression des objets Section et Siege dans Voyage pour eviter les couplage par contenu
