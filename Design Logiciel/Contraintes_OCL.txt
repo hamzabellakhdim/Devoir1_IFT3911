@@ -20,9 +20,8 @@ v1.idCompagnieVoyage=v2.idCompagnieVoyage)
 3/  L'aéroport de départ et d'arrivée d'un vol doit être différent 
 /[OCL]/.
 
-context VoyageGestionnaire:
-inv:self.voyages -->select(oclIsKindOf(Vol))
- -->forAll(v|v.descriptionVoyage.lieuDepart<>v.descriptionVoyage.lieuArrivee)
+context Voyage:
+inv:self.oclIsKindOf(Vol) implies self.descriptionVoyage.lieuDepart<>self.descriptionVoyage.lieuArrivee
 
 
 4/ Tous les sièges d'une même section ont le même prix.
@@ -38,22 +37,22 @@ forAll(s1,s2|s1.oclType() = s2.oclType() implies s1.prix=s2.prix)
 
 context LocationGestionnaire:
 inv: self.locations->select(s | s.oclIsKindOf(Port) and s.idLocation.size() <> 3)->isEmpty()
-and self.locations -->select(oclIsKindOf(Port))--> forAll(a1,a2|a1.idLocation<>a2.idLocation)
+and self.locations -->select(oclIsKindOf(Port))--> forAll(a1,a2|a1 <> a2 implies a1.idLocation<>a2.idLocation)
 
 
 
 6/ Un itinéraire ne peut pas durer plus de 21 jours.
  /[OCL]/.
 
-context VoyageGestionnaire:
-inv: self.voyages-->forAll(v | v.oclIsKindOf(Itineraire) implies v.descriptionVoyage.duree > 21)
+context Voyage:
+inv: self.oclIsKindOf(Itineraire) implies self.descriptionVoyage.duree > 21
 
 
 7/ Le port de départ et d'arrivée doit être le même .
 /[OCL]/.
 
-context VoyageGestionnaire:
-inv: self.voyages --> forAll(v | v.oclIsKinfOf(Itineraire) implies v.descriptionVoyage.lieuDepart=v.descriptionVoyage.lieuArrivee)
+context Voyage:
+inv: self.oclIsKindOf(Itineraire) implies self.descriptionVoyage.lieuDepart=self.descriptionVoyage.lieuArrivee
 
 
 
@@ -65,15 +64,19 @@ inv: self.voyages --> forAll(v | v.oclIsKinfOf(Itineraire) implies v.description
 
 context ControllerAdmin:
 inv:self.MoyenTransport_Gestionnaire.moyenTransports -->exists(m:MoyenTransport|m.oclIsKindOf(Paquebot)
-and self.VoyageGestionnaire.voyages-->select(oclIsKindOf(Itineraire)-->size()>1 implies
+and self.VoyageGestionnaire.voyages-->select(oclIsKindOf(Itineraire))-->size()>1 implies
 forAll(i1,i2|i1<>i2)
+
+context Voyage_Gestionnaire:
+inv:self.voyages-->select(oclisKindOf(Itineraire))-->
+forAll(a1,a2|a1.idmoyenTransport = a2.idmoyenTransport implies a1.descriptionVoyage.dateDepart <= a2.descriptionVoyage.dateArrivée and a1.descriptionVoyage.dateArrivée >= a2.descriptionVoyage.dateDépart)
 
 9/ Toutes les cabines d'une même section ont le même prix.
  /[OCL]/.
 
 context MoyenTransport:
 inv: self.sectionMoyenTransport -->select(oclIsKindOf(SectionP))-->
-forAll(s1,s2|s1.prix=s2.prix) 
+forAll(s1,s2|s1.classeSection=s2.classeSection implies s1.prix=s2.prix) 
 
 
 10/ Une gare est identifiée par trois lettres uniques à chaque gare.
@@ -81,7 +84,7 @@ forAll(s1,s2|s1.prix=s2.prix)
 
 context LocationGestionnaire:
 inv: self.locations.idLocation --> size()=3 
-and self.locations --> select(oclIsKindOf(Gare)) --> forAll(a1,a2|a1.idLocation<>a2.idLocation)
+and self.locations --> select(oclIsKindOf(Gare)) --> forAll(a1,a2|a1 <> a2 implies a1.idLocation<>a2.idLocation)
 
 
 
@@ -99,7 +102,7 @@ post: self.reservation.siegeReservation.EtatSiege.equalsIgnoreCase('reserver') i
 /[OCL]/.
 
 context Reservation_Gestionnaire :: payerReservation(idReservation:string,idClient:string,cc:CarteCredit,prix:float) 
-pre: self.reservation.estconfirmee()=true and self.reservation.siegeReservation.equals('confirmer') implies idReservation=reservation.idReservation
+pre: self.reservation.estconfirmee()=true and self.reservation.siegeReservation.equals('reserver') implies idReservation=reservation.idReservation
 post: self.reservation.estconfirmee()=true and self.reservation.siegeReservation.equals('confirmer') implies idReservation=reservation.idReservation
 
 
