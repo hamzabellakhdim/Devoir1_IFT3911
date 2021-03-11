@@ -2,11 +2,11 @@
 /[OCL]/
 
 context LocationGestionnaire:
-inv: self.locations.idLocation --> size()=3 
-and self.locations --> select(oclIsKindOf(Aeroport)) --> forAll(a1,a2|a1.idLocation<>a2.idLocation)
+inv: self.locations->select(a | a.oclIsKindOf(Aeroport) and a.idLocation.size() <> 3)->isEmpty() 
+	and self.locations --> select(oclIsKindOf(Aeroport)) --> forAll(a1,a2|a1 <> a2 implies a1.idLocation<>a2.idLocation)
 
 
-2/ La partie alphabétique de l'ID d'un volest unique à chaque compagnie
+2/ La partie alphabétique de l'ID d'un vol est unique à chaque compagnie
  et la partie numérique est unique à chaque vol au sein de la même compagnie
  /[OCL]/
 
@@ -22,42 +22,42 @@ v1.idCompagnieVoyage=v2.idCompagnieVoyage)
 
 context VoyageGestionnaire:
 inv:self.voyages -->select(oclIsKindOf(Vol))
- -->forAll(v|v.descriptionVoyage.lieuDepart<>self.descriptionVoyage.lieuArrivee)
+ -->forAll(v|v.descriptionVoyage.lieuDepart<>v.descriptionVoyage.lieuArrivee)
 
 
 4/ Tous les sièges d'une même section ont le même prix.
  /[OCL]/.
 
-context MoyenTransport:
-inv: self.sectionMoyenTransport -->select(oclIsKindOf(SectionA))-->
-forAll(s1,s2|s1.prix=s2.prix)
+context SectionGestionnaire :
+inv: self.sectionsMoyenTransport -->select(s | s.oclIsKindOf(SectionA))-->
+forAll(s1,s2|s1.oclType() = s2.oclType() implies s1.prix=s2.prix)	
 
 
 5/ Un port est identifié par trois lettres uniques à chaque port.
  /[OCL]/.
 
 context LocationGestionnaire:
-inv: self.locations.idLocation -->size()=3 
+inv: self.locations->select(s | s.oclIsKindOf(Port) and s.idLocation.size() <> 3)->isEmpty()
 and self.locations -->select(oclIsKindOf(Port))--> forAll(a1,a2|a1.idLocation<>a2.idLocation)
 
 
 
-6/ Une compagnie de croisière fournit plusieurs itinéraires, avec dates et
-heures de départ et d'arrivée. Un itinéraire ne peut pas durer plus de
-21 jours.
+6/ Un itinéraire ne peut pas durer plus de 21 jours.
  /[OCL]/.
 
 context VoyageGestionnaire:
-inv: self.voyages-->select(oclIsKindOf(Itineraire))-->reject(self.descriptionVoyage.duree>21)
+inv: self.voyages-->forAll(v | v.oclIsKindOf(Itineraire) implies v.descriptionVoyage.duree > 21)
 
 
 7/ Le port de départ et d'arrivée doit être le même .
 /[OCL]/.
 
 context VoyageGestionnaire:
-inv: self.voyages --> select(oclIsKindOf(Itineraire))-->
-forAll(i|i.descriptionVoyage.lieuDepart=self.descriptionVoyage.lieuArrivee)
+inv: self.voyages --> forAll(v | v.oclIsKinfOf(Itineraire) implies v.descriptionVoyage.lieuDepart=v.descriptionVoyage.lieuArrivee)
 
+
+
+//TODO
 
 
 8/ Un paquebot peut être assigné à plusieurs itinéraires tant qu'ils ne se chevauchent pas
