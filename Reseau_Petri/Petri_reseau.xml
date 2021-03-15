@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><pnml>
+<net id="Net-One" type="P/T net">
+<token id="Default" enabled="true" red="0" green="0" blue="0"/>
+<place id="lumiere_ok">
+<graphics>
+<position x="345.0" y="285.0"/>
+</graphics>
+<name>
+<value>lumiere_ok</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="lumiere2_ok">
+<graphics>
+<position x="195.0" y="210.0"/>
+</graphics>
+<name>
+<value>lumiere2_ok</value>
+<graphics>
+<offset x="-3.0" y="18.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="Montreal">
+<graphics>
+<position x="60.0" y="105.0"/>
+</graphics>
+<name>
+<value>Montreal</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="Rive_sud">
+<graphics>
+<position x="345.0" y="525.0"/>
+</graphics>
+<name>
+<value>Rive_sud</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="voiture1_tunnel">
+<graphics>
+<position x="345.0" y="105.0"/>
+</graphics>
+<name>
+<value>voiture1_tunnel</value>
+<graphics>
+<offset x="45.0" y="-13.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="voiture2_tunnel">
+<graphics>
+<position x="195.0" y="390.0"/>
+</graphics>
+<name>
+<value>voiture2_tunnel</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<transition id="voiture1_sort_voiture2_peut entrer">
+<graphics>
+<position x="345.0" y="390.0"/>
+</graphics>
+<name>
+<value>voiture1_sort_voiture2_peut entrer</value>
+<graphics>
+<offset x="208.0" y="24.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="voiture1_sortie_tunnel_allumer_lumiere">
+<graphics>
+<position x="345.0" y="195.0"/>
+</graphics>
+<name>
+<value>voiture1_sortie_tunnel_allumer_lumiere</value>
+<graphics>
+<offset x="232.0" y="21.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="voiture2_sort_voiture1_peut_entrer">
+<graphics>
+<position x="195.0" y="105.0"/>
+</graphics>
+<name>
+<value>voiture2_sort_voiture1_peut_entrer</value>
+<graphics>
+<offset x="78.0" y="-14.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="voiture2_sortie_tunnel_allumer_lumiere2">
+<graphics>
+<position x="195.0" y="300.0"/>
+</graphics>
+<name>
+<value>voiture2_sortie_tunnel_allumer_lumiere2</value>
+<graphics>
+<offset x="9.0" y="-8.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<arc id="lumiere_ok to voiture1_sort_voiture2_peut entrer" source="lumiere_ok" target="voiture1_sort_voiture2_peut entrer">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="357" y="311" curvePoint="false"/>
+<arcpath id="001" x="357" y="387" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="lumiere2_ok to voiture2_sort_voiture1_peut_entrer" source="lumiere2_ok" target="voiture2_sort_voiture1_peut_entrer">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="207" y="207" curvePoint="false"/>
+<arcpath id="001" x="207" y="132" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Montreal to voiture2_sort_voiture1_peut_entrer" source="Montreal" target="voiture2_sort_voiture1_peut_entrer">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="86" y="116" curvePoint="false"/>
+<arcpath id="001" x="202" y="112" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Rive_sud to voiture1_sort_voiture2_peut entrer" source="Rive_sud" target="voiture1_sort_voiture2_peut entrer">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="357" y="522" curvePoint="false"/>
+<arcpath id="001" x="357" y="417" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="voiture1_sort_voiture2_peut entrer to Rive_sud" source="voiture1_sort_voiture2_peut entrer" target="Rive_sud">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="357" y="417" curvePoint="false"/>
+<arcpath id="001" x="357" y="522" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="voiture1_sort_voiture2_peut entrer to voiture2_tunnel" source="voiture1_sort_voiture2_peut entrer" target="voiture2_tunnel">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="351" y="402" curvePoint="false"/>
+<arcpath id="001" x="221" y="402" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="voiture1_sortie_tunnel_allumer_lumiere to lumiere_ok" source="voiture1_sortie_tunnel_allumer_lumiere" target="lumiere_ok">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="357" y="222" curvePoint="false"/>
+<arcpath id="001" x="357" y="282" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="voiture1_tunnel to voiture1_sortie_tunnel_allumer_lumiere" source="voiture1_tunnel" target="voiture1_sortie_tunnel_allumer_lumiere">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="357" y="131" curvePoint="false"/>
+<arcpath id="001" x="357" y="192" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="voiture2_sort_voiture1_peut_entrer to Montreal" source="voiture2_sort_voiture1_peut_entrer" target="Montreal">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="201" y="117" curvePoint="false"/>
+<arcpath id="001" x="86" y="117" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="voiture2_sort_voiture1_peut_entrer to voiture1_tunnel" source="voiture2_sort_voiture1_peut_entrer" target="voiture1_tunnel">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="211" y="117" curvePoint="false"/>
+<arcpath id="001" x="342" y="117" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="voiture2_sortie_tunnel_allumer_lumiere2 to lumiere2_ok" source="voiture2_sortie_tunnel_allumer_lumiere2" target="lumiere2_ok">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="207" y="297" curvePoint="false"/>
+<arcpath id="001" x="207" y="236" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="voiture2_tunnel to voiture2_sortie_tunnel_allumer_lumiere2" source="voiture2_tunnel" target="voiture2_sortie_tunnel_allumer_lumiere2">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="207" y="387" curvePoint="false"/>
+<arcpath id="001" x="207" y="327" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+</net>
+</pnml>
