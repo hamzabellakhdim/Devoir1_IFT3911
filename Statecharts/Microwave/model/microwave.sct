@@ -49,7 +49,7 @@
                 <outgoingTransitions xmi:id="_WNwI4GYwEeqBbq-3iF3pqA" specification="after 1s / countCookingTime = countCookingTime - 1" target="_Oh20MGYwEeqBbq-3iF3pqA"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_Oh20MGYwEeqBbq-3iF3pqA" specification="entry/&#xD;&#xA;beepOff() ;&#xD;&#xA;display(&quot;FINISHED&quot;)" name="beepOff" incomingTransitions="_WNwI4GYwEeqBbq-3iF3pqA">
-                <outgoingTransitions xmi:id="_Y13aoGYwEeqBbq-3iF3pqA" specification="after 50 ms [countCookingTime >=0]" target="_BZcMcGYwEeqBbq-3iF3pqA"/>
+                <outgoingTransitions xmi:id="_Y13aoGYwEeqBbq-3iF3pqA" specification="after 5 s [countCookingTime >=0]" target="_BZcMcGYwEeqBbq-3iF3pqA"/>
               </vertices>
             </regions>
           </vertices>
